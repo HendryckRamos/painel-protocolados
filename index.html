@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Protocolados - DPE/PA Belém (Setembro/2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-titles">
+      <h1>
+        Painel Estratégico de Protocolados
+        <span class="badge-dpe">DPE/PA • Belém</span>
+      </h1>
+      <p>Análise de produtividade por servidor, núcleos e classificação das matérias (Família vs. Cível) — Setembro/2026</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill">
+        <div class="val">474</div>
+        <div class="lbl">Total Protocolados</div>
+      </div>
+      <div class="stat-pill">
+        <div class="val">48</div>
+        <div class="lbl">Servidores Ativos</div>
+      </div>
+      <div class="stat-pill">
+        <div class="val">11</div>
+        <div class="lbl">Núcleos / Grupos</div>
+      </div>
+      <div class="stat-pill">
+        <div class="val">73</div>
+        <div class="lbl">NIES</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('tab-nies')">
+      🏛️ NIES Detalhado
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-familia')">
+      👨‍👩‍👧‍👦 Núcleo da Família
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-geral')">
+      🏆 Ranking Geral de Belém
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-materia')">
+      ⚖️ Família vs. Cível
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-comparador')">
+      🔄 Comparador: NIES x Outro Núcleo
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-busca')">
+      🔍 Base de Processos
+    </button>
+  </nav>
+
+  <!-- ==================== TAB 1: NIES DETALHADO ==================== -->
+  <section id="tab-nies" class="tab-panel active">
+    <!-- Notice -->
+    <div class="alert-banner">
+      <span>ℹ️</span>
+      <div>
+        <strong>Ajuste de Classificação Aplicado:</strong> As ações de <strong>Interdição/Curatela (58)</strong> foram devidamente alocadas na <strong>Matéria Cível</strong> conforme suas instruções.
+      </div>
+    </div>
+
+    <!-- KPIs NIES -->
+    <div class="grid-kpis">
+      <div class="card-kpi" style="--accent: #6366F1;">
+        <div class="kpi-label">Total Protocolado NIES</div>
+        <div class="kpi-value">73</div>
+        <div class="kpi-desc">100% do mês de setembro/2026</div>
+      </div>
+      <div class="card-kpi" style="--accent: var(--familia);">
+        <div class="kpi-label">Matéria de Família</div>
+        <div class="kpi-value" style="color: var(--familia);">36</div>
+        <div class="kpi-desc">49,3% do acervo (Alimentos, Divórcios, Guarda)</div>
+      </div>
+      <div class="card-kpi" style="--accent: var(--civel);">
+        <div class="kpi-label">Matéria Cível</div>
+        <div class="kpi-value" style="color: var(--civel);">37</div>
+        <div class="kpi-desc">50,7% do acervo (Reg. Civil, Interdição, Procedimento, Alvará)</div>
+      </div>
+      <div class="card-kpi" style="--accent: var(--warning);">
+        <div class="kpi-label">Média por Assessor</div>
+        <div class="kpi-value">24,3</div>
+        <div class="kpi-desc">Maior produtividade média da comarca de Belém!</div>
+      </div>
+    </div>
+
+    <div class="split-grid">
+      <!-- Ranking Assessores NIES -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-title">Ranking dos Assessores do NIES</div>
+          <span class="badge badge-civel">3 Assessores</span>
+        </div>
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Assessor(a)</th>
+                <th>Família</th>
+                <th>Cível</th>
+                <th>Total</th>
+                <th>% NIES</th>
+                <th>Participação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Beatriz de Nazaré Corrêa Castro</strong></td>
+                <td><span class="badge badge-familia">25</span></td>
+                <td><span class="badge badge-civel">17</span></td>
+                <td><strong style="color: #60A5FA; font-size: 15px;">42</strong></td>
+                <td>57,5%</td>
+                <td>
+                  <div class="bar-wrapper">
+                    <div class="bar-bg"><div class="bar-fill" style="width: 57.5%;"></div></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Hendryck Ayan Braz Ramos</strong></td>
+                <td><span class="badge badge-familia">11</span></td>
+                <td><span class="badge badge-civel">12</span></td>
+                <td><strong style="color: #60A5FA; font-size: 15px;">23</strong></td>
+                <td>31,5%</td>
+                <td>
+                  <div class="bar-wrapper">
+                    <div class="bar-bg"><div class="bar-fill" style="width: 31.5%;"></div></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Patrícia Aguiar de Moura</strong></td>
+                <td><span class="badge badge-familia">0</span></td>
+                <td><span class="badge badge-civel">8</span></td>
+                <td><strong style="color: #60A5FA; font-size: 15px;">8</strong></td>
+                <td>11,0%</td>
+                <td>
+                  <div class="bar-wrapper">
+                    <div class="bar-bg"><div class="bar-fill" style="width: 11.0%;"></div></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tipos de Ações NIES -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-title">Distribuição por Ações no NIES</div>
+          <span class="badge badge-familia">8 Tipos de Ações</span>
+        </div>
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Tipo de Ação</th>
+                <th>Matéria</th>
+                <th>Qtd</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alimentos - Lei Especial nº 5.478/68</td>
+                <td><span class="badge badge-familia">Família</span></td>
+                <td><strong>27</strong></td>
+                <td>37,0%</td>
+              </tr>
+              <tr>
+                <td>Retificação de Registro Civil</td>
+                <td><span class="badge badge-civel">Cível</span></td>
+                <td><strong>24</strong></td>
+                <td>32,9%</td>
+              </tr>
+              <tr>
+                <td>Interdição / Curatela</td>
+                <td><span class="badge badge-civel">Cível</span></td>
+                <td><strong>8</strong></td>
+                <td>11,0%</td>
+              </tr>
+              <tr>
+                <td>Divórcio Litigioso</td>
+                <td><span class="badge badge-familia">Família</span></td>
+                <td><strong>5</strong></td>
+                <td>6,8%</td>
+              </tr>
+              <tr>
+                <td>Procedimento Comum Cível</td>
+                <td><span class="badge badge-civel">Cível</span></td>
+                <td><strong>4</strong></td>
+                <td>5,5%</td>
+              </tr>
+              <tr>
+                <td>Divórcio Consensual</td>
+                <td><span class="badge badge-familia">Família</span></td>
+                <td><strong>3</strong></td>
+                <td>4,1%</td>
+              </tr>
+              <tr>
+                <td>Guarda de Infância e Juventude</td>
+                <td><span class="badge badge-familia">Família</span></td>
+                <td><strong>1</strong></td>
+                <td>1,4%</td>
+              </tr>
+              <tr>
+                <td>Alvará Judicial - Lei 6858/80</td>
+                <td><span class="badge badge-civel">Cível</span></td>
+                <td><strong>1</strong></td>
+                <td>1,4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detalhamento Individual do NIES -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div class="card-title">Detalhamento Analítico por Assessor do NIES</div>
+      </div>
+      <div class="grid-kpis" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        <!-- Beatriz -->
+        <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">Beatriz de Nazaré Corrêa Castro</div>
+          <div style="font-size: 13px; color: var(--primary-light); margin-bottom: 12px; font-weight: 700;">42 Protocolados (25 Família • 17 Cível)</div>
+          <ul style="list-style: none; font-size: 13px; line-height: 1.8; color: var(--text-muted);">
+            <li>🟢 <strong>20</strong> Alimentos (Lei 5.478/68)</li>
+            <li>🔵 <strong>13</strong> Retificação de Registro Civil</li>
+            <li>🟢 <strong>4</strong> Divórcio Litigioso</li>
+            <li>🔵 <strong>2</strong> Procedimento Comum Cível</li>
+            <li>🔵 <strong>2</strong> Interdição/Curatela</li>
+            <li>🟢 <strong>1</strong> Guarda de Infância e Juventude</li>
+          </ul>
+        </div>
+        <!-- Hendryck -->
+        <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">Hendryck Ayan Braz Ramos</div>
+          <div style="font-size: 13px; color: var(--primary-light); margin-bottom: 12px; font-weight: 700;">23 Protocolados (11 Família • 12 Cível)</div>
+          <ul style="list-style: none; font-size: 13px; line-height: 1.8; color: var(--text-muted);">
+            <li>🔵 <strong>10</strong> Retificação de Registro Civil</li>
+            <li>🟢 <strong>7</strong> Alimentos (Lei 5.478/68)</li>
+            <li>🟢 <strong>3</strong> Divórcio Consensual</li>
+            <li>🔵 <strong>2</strong> Procedimento Comum Cível</li>
+            <li>🟢 <strong>1</strong> Divórcio Litigioso</li>
+          </ul>
+        </div>
+        <!-- Patricia -->
+        <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">Patrícia Aguiar de Moura</div>
+          <div style="font-size: 13px; color: var(--primary-light); margin-bottom: 12px; font-weight: 700;">8 Protocolados (0 Família • 8 Cível)</div>
+          <ul style="list-style: none; font-size: 13px; line-height: 1.8; color: var(--text-muted);">
+            <li>🔵 <strong>6</strong> Interdição/Curatela</li>
+            <li>🔵 <strong>1</strong> Retificação de Registro Civil</li>
+            <li>🔵 <strong>1</strong> Alvará Judicial (Lei 6.858/80)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 2: NÚCLEO DA FAMÍLIA ==================== -->
+  <section id="tab-familia" class="tab-panel">
+    <div class="grid-kpis">
+      <div class="card-kpi" style="--accent: var(--familia);">
+        <div class="kpi-label">Total do Núcleo de Família</div>
+        <div class="kpi-value" style="color: var(--familia);">194</div>
+        <div class="kpi-desc">Varas de Família + NAEFA Conciliação</div>
+      </div>
+      <div class="card-kpi" style="--accent: #60A5FA;">
+        <div class="kpi-label">Servidores Atuando</div>
+        <div class="kpi-value">11</div>
+        <div class="kpi-desc">Liderado por Gabriella Anselmo (120)</div>
+      </div>
+      <div class="card-kpi" style="--accent: var(--warning);">
+        <div class="kpi-label">Média por Servidor</div>
+        <div class="kpi-value">17,6</div>
+        <div class="kpi-desc">Protocolados / servidor no mês</div>
+      </div>
+      <div class="card-kpi" style="--accent: #F43F5E;">
+        <div class="kpi-label">Principal Modalidade</div>
+        <div class="kpi-value" style="font-size: 20px; line-height: 1.2;">Reclamação Pré-Processual</div>
+        <div class="kpi-desc">88 acordos/conciliações prévias (45,4%)</div>
+      </div>
+    </div>
+
+    <div class="split-grid">
+      <!-- Ranking Servidores Família -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-title">Ranking dos 11 Servidores de Família</div>
+          <span class="badge badge-familia">194 Ações</span>
+        </div>
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Servidor(a)</th>
+                <th>Qtd</th>
+                <th>%</th>
+                <th>Distribuição</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-familia-servidores">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Ações no Núcleo de Família -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-title">Tipos de Ações Protocoladas em Família</div>
+          <span class="badge badge-familia">Varas & NAEFA</span>
+        </div>
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Ação</th>
+                <th>Qtd</th>
+                <th>% Núcleo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Reclamação Pré-Processual (11875)</td><td><strong>88</strong></td><td>45,4%</td></tr>
+              <tr><td>Procedimento Comum Cível (7)</td><td><strong>24</strong></td><td>12,4%</td></tr>
+              <tr><td>Cumprimento de Sentença (156)</td><td><strong>22</strong></td><td>11,3%</td></tr>
+              <tr><td>Homologação da Transação Extrajudicial (12374)</td><td><strong>15</strong></td><td>7,7%</td></tr>
+              <tr><td>Alimentos - Lei Especial nº 5.478/68 (69)</td><td><strong>14</strong></td><td>7,2%</td></tr>
+              <tr><td>Guarda de Família</td><td><strong>10</strong></td><td>5,2%</td></tr>
+              <tr><td>Divórcio Consensual (12372)</td><td><strong>10</strong></td><td>5,2%</td></tr>
+              <tr><td>Divórcio Litigioso (12541)</td><td><strong>8</strong></td><td>4,1%</td></tr>
+              <tr><td>Cumprimento de Sentença de Alimentos</td><td><strong>3</strong></td><td>1,5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Defensorias do Núcleo de Família -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div class="card-title">Volume por Unidade / Defensoria de Família</div>
+      </div>
+      <div class="data-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Defensoria / Unidade</th>
+              <th>Protocolados</th>
+              <th>Principais Servidores</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>NAEFA CONCILIACAO/COORDENACAO</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">72</strong></td>
+              <td>Gabriella Anselmo (72)</td>
+            </tr>
+            <tr>
+              <td><strong>16ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">40</strong></td>
+              <td>Izabella Siqueira (25), Helena Gualberto (9), Lizandra Vitor (3), Lorena Estrela (2), Letícia Ranieri (1)</td>
+            </tr>
+            <tr>
+              <td><strong>12ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">34</strong></td>
+              <td>Gabriella Anselmo (34)</td>
+            </tr>
+            <tr>
+              <td><strong>7ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">27</strong></td>
+              <td>Gabriella Anselmo (14), Letícia Ranieri (10), Helena Gualberto (1), Lizandra Vitor (1), Lorena Estrela (1)</td>
+            </tr>
+            <tr>
+              <td><strong>4ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">11</strong></td>
+              <td>Thifany Melo da Silva (8), Enzo Serruya Saife (3)</td>
+            </tr>
+            <tr>
+              <td><strong>17ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">5</strong></td>
+              <td>Bianca Silveira (3), Deborah Silva (2)</td>
+            </tr>
+            <tr>
+              <td><strong>15ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">3</strong></td>
+              <td>Helena Gualberto (2), Lorena Estrela (1)</td>
+            </tr>
+            <tr>
+              <td><strong>2ª DEFENSORIA PÚBLICA DE FAMÍLIA</strong></td>
+              <td><strong style="color: var(--familia); font-size: 15px;">2</strong></td>
+              <td>Deborah Silva (1), Moane Pacheco (1)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 3: RANKING GERAL DE BELÉM ==================== -->
+  <section id="tab-geral" class="tab-panel">
+    <div class="grid-kpis">
+      <div class="card-kpi" style="--accent: #F59E0B;">
+        <div class="kpi-label">Top 1 de Belém</div>
+        <div class="kpi-value" style="font-size: 22px;">Gabriella Anselmo</div>
+        <div class="kpi-desc">120 ações (Família/NAEFA)</div>
+      </div>
+      <div class="card-kpi" style="--accent: #94A3B8;">
+        <div class="kpi-label">Top 2 de Belém (Destaque NIES!)</div>
+        <div class="kpi-value" style="font-size: 22px; color: #60A5FA;">Beatriz Corrêa Castro</div>
+        <div class="kpi-desc">42 ações (NIES - 2ª maior produtividade de Belém!)</div>
+      </div>
+      <div class="card-kpi" style="--accent: #D97706;">
+        <div class="kpi-label">Top 3 de Belém</div>
+        <div class="kpi-value" style="font-size: 22px;">Yasmin Marques</div>
+        <div class="kpi-desc">32 ações (Fazenda Pública)</div>
+      </div>
+      <div class="card-kpi" style="--accent: #34D399;">
+        <div class="kpi-label">Top 5 de Belém (Destaque NIES!)</div>
+        <div class="kpi-value" style="font-size: 22px; color: #34D399;">Hendryck Braz Ramos</div>
+        <div class="kpi-desc">23 ações (NIES - 5º lugar geral!)</div>
+      </div>
+    </div>
+
+    <!-- Ranking dos Núcleos -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div class="card-title">Ranking de Volume e Produtividade por Núcleo / Área</div>
+        <span class="badge badge-civel">11 Núcleos</span>
+      </div>
+      <div class="data-table-container">
+        <table class="data-table" id="table-nucleos-ranking">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Núcleo / Área</th>
+              <th>Total Ações</th>
+              <th>Servidores</th>
+              <th>Média p/ Servidor</th>
+              <th>Família</th>
+              <th>Cível</th>
+              <th>Produtividade Relativa</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-nucleos">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Ranking Completo de Todos os Servidores -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div class="card-title">Ranking Geral de Todos os 48 Servidores (Setembro/2026)</div>
+        <input type="text" id="searchServidor" class="search-input" placeholder="🔍 Filtrar servidor..." onkeyup="filterServidores()">
+      </div>
+      <div class="data-table-container">
+        <table class="data-table" id="table-all-servidores">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Servidor(a)</th>
+              <th>Núcleo Principal</th>
+              <th>Total Protocolados</th>
+              <th>% Geral</th>
+              <th>Produtividade Visual</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-geral-servidores">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 4: FAMÍLIA VS. CÍVEL ==================== -->
+  <section id="tab-materia" class="tab-panel">
+    <div class="grid-kpis">
+      <div class="card-kpi" style="--accent: var(--familia);">
+        <div class="kpi-label">Matéria de Família em Belém</div>
+        <div class="kpi-value" style="color: var(--familia);">263</div>
+        <div class="kpi-desc">55,5% do total geral de 474</div>
+      </div>
+      <div class="card-kpi" style="--accent: var(--civel);">
+        <div class="kpi-label">Matéria Cível em Belém</div>
+        <div class="kpi-value" style="color: var(--civel);">206</div>
+        <div class="kpi-desc">43,5% do total geral de 474</div>
+      </div>
+      <div class="card-kpi" style="--accent: var(--crim);">
+        <div class="kpi-label">Criminal / Medidas Protetivas</div>
+        <div class="kpi-value" style="color: var(--crim);">5</div>
+        <div class="kpi-desc">1,1% (Violência de Gênero)</div>
+      </div>
+    </div>
+
+    <div class="split-grid">
+      <!-- Top Ações de Família -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-title">Top Ações de Família em Belém</div>
+          <span class="badge badge-familia">263 Ações</span>
+        </div>
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead><tr><th>Ação</th><th>Total</th><th>% Matéria</th></tr></thead>
+            <tbody>
+              <tr><td>Reclamação Pré-Processual (11875)</td><td><strong>88</strong></td><td>33,5%</td></tr>
+              <tr><td>Alimentos - Lei Especial nº 5.478/68 (69)</td><td><strong>52</strong></td><td>19,8%</td></tr>
+              <tr><td>Procedimento Comum Cível (em Varas de Família)</td><td><strong>24</strong></td><td>9,1%</td></tr>
+              <tr><td>Cumprimento de Sentença (em Família)</td><td><strong>22</strong></td><td>8,4%</td></tr>
+              <tr><td>Divórcio Litigioso (12541)</td><td><strong>20</strong></td><td>7,6%</td></tr>
+              <tr><td>Homologação da Transação Extrajudicial (12374)</td><td><strong>15</strong></td><td>5,7%</td></tr>
+              <tr><td>Guarda de Família</td><td><strong>13</strong></td><td>4,9%</td></tr>
+              <tr><td>Divórcio Consensual (12372)</td><td><strong>13</strong></td><td>4,9%</td></tr>
+              <tr><td>Guarda de Infância e Juventude (1420)</td><td><strong>4</strong></td><td>1,5%</td></tr>
+              <tr><td>Ação de Alimentos de Infância e Juventude (1389)</td><td><strong>3</strong></td><td>1,1%</td></tr>
+              <tr><td>Cumprimento Sentença Obrigação de Alimentos</td><td><strong>3</strong></td><td>1,1%</td></tr>
+              <tr><td>Outras (Adoção / Juizado etc.)</td><td><strong>6</strong></td><td>2,3%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Ações Cíveis -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-title">Top Ações Cíveis em Belém</div>
+          <span class="badge badge-civel">206 Ações</span>
+        </div>
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead><tr><th>Ação</th><th>Total</th><th>% Matéria</th></tr></thead>
+            <tbody>
+              <tr><td>Proc. Juizado Especial Fazenda Pública</td><td><strong>113</strong></td><td>54,9%</td></tr>
+              <tr><td>Retificação de Registro Civil (1682)</td><td><strong>29</strong></td><td>14,1%</td></tr>
+              <tr><td>Procedimento Comum Cível Residual</td><td><strong>27</strong></td><td>13,1%</td></tr>
+              <tr><td>Interdição / Curatela (58)</td><td><strong>11</strong></td><td>5,3%</td></tr>
+              <tr><td>Alvará Judicial - Lei 6858/80 (74)</td><td><strong>7</strong></td><td>3,4%</td></tr>
+              <tr><td>Usucapião (49)</td><td><strong>6</strong></td><td>2,9%</td></tr>
+              <tr><td>Cumprimento de Sentença (Fazenda/Gênero)</td><td><strong>4</strong></td><td>1,9%</td></tr>
+              <tr><td>Outras Cíveis (Embargos, Inventário, Execuções)</td><td><strong>9</strong></td><td>4,4%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 5: COMPARADOR NIES X CADA NÚCLEO ==================== -->
+  <section id="tab-comparador" class="tab-panel">
+    <div class="compare-controls">
+      <div class="select-group">
+        <label for="compareSelect">Selecione o Núcleo para comparar com o NIES:</label>
+        <select id="compareSelect" class="custom-select" onchange="updateComparison()">
+          <!-- Populated via JS -->
+        </select>
+      </div>
+      <div>
+        <span class="badge badge-civel" style="font-size: 13px; padding: 8px 14px;">Modo Comparação Dinâmica</span>
+      </div>
+    </div>
+
+    <!-- Side-by-side cards -->
+    <div class="compare-side-by-side">
+      <!-- NIES Fixed Card -->
+      <div class="side-card nies">
+        <span class="side-badge nies-badge">Núcleo Base de Análise</span>
+        <h2 style="font-size: 22px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">NIES (Ensino Superior)</h2>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Núcleo das Instituições de Ensino Superior de Belém</p>
+
+        <div class="grid-kpis" style="grid-template-columns: 1fr 1fr; margin-bottom: 16px;">
+          <div class="card-kpi" style="padding: 14px;">
+            <div class="kpi-label">Total Ações</div>
+            <div class="kpi-value" style="font-size: 24px;">73</div>
+          </div>
+          <div class="card-kpi" style="padding: 14px;">
+            <div class="kpi-label">Servidores</div>
+            <div class="kpi-value" style="font-size: 24px;">3</div>
+          </div>
+          <div class="card-kpi" style="padding: 14px;">
+            <div class="kpi-label">Média p/ Servidor</div>
+            <div class="kpi-value" style="font-size: 24px; color: #38BDF8;">24,3</div>
+          </div>
+          <div class="card-kpi" style="padding: 14px;">
+            <div class="kpi-label">Divisão Matéria</div>
+            <div style="font-size: 13px; font-weight: 700; margin-top: 6px;">
+              <span style="color: var(--familia);">36 Família</span><br>
+              <span style="color: var(--civel);">37 Cível</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size: 14px; font-weight: 700; margin: 16px 0 8px; color: #FFFFFF;">Assessores do NIES:</div>
+        <div style="font-size: 13px; line-height: 1.8; color: var(--text-muted);">
+          • <strong>Beatriz de Nazaré:</strong> 42 protocolados (25 Família • 17 Cível)<br>
+          • <strong>Hendryck Ayan:</strong> 23 protocolados (11 Família • 12 Cível)<br>
+          • <strong>Patrícia Aguiar:</strong> 8 protocolados (0 Família • 8 Cível)
+        </div>
+      </div>
+
+      <!-- Target Núcleo Dynamic Card -->
+      <div class="side-card target" id="targetCompareCard">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- Comparative Synthesis Box -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div class="card-title">Síntese Comparativa: NIES versus Núcleo Selecionado</div>
+      </div>
+      <div id="diffTextContainer" class="diff-box">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 6: BASE DE PROCESSOS ==================== -->
+  <section id="tab-busca" class="tab-panel">
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div class="card-title">Consulta de Processos Cadastrados (474 Registros)</div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <input type="text" id="searchProcessos" class="search-input" placeholder="🔍 Buscar nº processo, assessor, ação..." onkeyup="filterProcessos()">
+          <select id="filterMateria" class="search-input" style="width: 160px;" onchange="filterProcessos()">
+            <option value="">Todas Matérias</option>
+            <option value="FAMÍLIA">Família</option>
+            <option value="CÍVEL">Cível</option>
+            <option value="CRIMINAL">Criminal</option>
+          </select>
+        </div>
+      </div>
+      <div class="data-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Processo</th>
+              <th>Núcleo / Defensoria</th>
+              <th>Ação</th>
+              <th>Matéria</th>
+              <th>Enviada por</th>
+              <th>Defensor(a)</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-processos">
+            <!-- Rendered via JS with pagination/filter -->
+          </tbody>
+        </table>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 13px; color: var(--text-muted);">
+        <span id="processosCount">Exibindo 0 registros</span>
+        <div style="display: flex; gap: 8px;">
+          <button class="tab-btn" style="padding: 6px 14px;" onclick="prevPage()">◀ Anterior</button>
+          <span id="pageIndicator" style="padding: 6px 10px; font-weight: 700;">1</span>
+          <button class="tab-btn" style="padding: 6px 14px;" onclick="nextPage()">Próxima ▶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
